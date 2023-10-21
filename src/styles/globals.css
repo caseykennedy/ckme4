@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-black;
+  }
+
+  body {
+    @apply relative flex min-h-screen w-full flex-col justify-between scroll-smooth font-sans font-normal text-zinc-100 antialiased;
+
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-feature-settings: "pnum";
+    text-rendering: geometricPrecision;
+    font-feature-settings: "pnum";
+    font-variant-numeric: proportional-nums;
+    font-variant-ligatures: common-ligatures;
+  }
+
+  :root {
+    --swiper-navigation-top-offset: ;
+    --swiper-navigation-size: 20px;
+  }
+}

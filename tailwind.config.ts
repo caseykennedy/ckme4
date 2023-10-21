@@ -7,10 +7,12 @@ export default {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     container: {
-      center: true,
-      padding: "2rem",
+      center: false,
+      padding: {
+        DEFAULT: "1.25rem",
+      },
       screens: {
-        "2xl": "1400px",
+        "2xl": "1728px",
       },
     },
     extend: {
@@ -19,7 +21,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       colors: {
-        silver: {
+        frost: {
           100: "hsla(221, 17%, 86%, 1)",
           200: "hsla(221, 17%, 78%, 1)",
           300: "hsla(221, 17%, 69%, 1)",
@@ -33,7 +35,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-space-grotesk)", "Arial", ...fontFamily.sans],
+        sans: ["var(--font-NBInternational)", "Arial", ...fontFamily.sans],
       },
       fontSize: {},
       keyframes: {
@@ -45,14 +47,6 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-      },
-      maxWidth: {
-        site: "1680px",
-        reading: "54ch",
-      },
-      spacing: {
-        header: "90px",
-        "18": "74px",
       },
       transitionDuration: {
         DEFAULT: "200ms",

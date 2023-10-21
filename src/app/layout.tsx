@@ -1,18 +1,32 @@
 import { type Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 
 import "~/styles/globals.css";
 
-// import { ThemeProviders } from "./theme-providers";
-// import Header from "@/components/Header";
-// import SectionContainer from "@/components/SectionContainer";
-// import Footer from "@/components/Footer";
+import Footer from "~/components/footer";
+import Header from "~/components/header";
 import siteMetadata from "~/data/site-metadata";
 
-const space_grotesk = Space_Grotesk({
-  subsets: ["latin"],
+const NBInternational = localFont({
+  src: [
+    {
+      path: "fonts/NBInternationalPro-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "fonts/NBInternationalPro-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "fonts/NBInternationalPro-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   display: "swap",
-  variable: "--font-space-grotesk",
+  variable: "--font-NBInternational",
 });
 
 export const metadata: Metadata = {
@@ -63,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang={siteMetadata.language}
-      className={`${space_grotesk.variable} scroll-smooth`}
+      className={`${NBInternational.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <link
@@ -87,9 +101,9 @@ export default function RootLayout({
       <link
         rel="mask-icon"
         href="/static/favicons/safari-pinned-tab.svg"
-        color="#5bbad5"
+        color="#fff"
       />
-      <meta name="msapplication-TileColor" content="#000000" />
+      <meta name="msapplication-TileColor" content="#000" />
       <meta
         name="theme-color"
         media="(prefers-color-scheme: light)"
@@ -101,13 +115,11 @@ export default function RootLayout({
         content="#000"
       />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="bg-black text-white">
-        <div className="flex h-screen flex-col justify-between font-sans">
-          {/* <Header /> */}
-          <main className="nowrap flex w-full flex-auto flex-col">
-            {children}
-          </main>
-          {/* <Footer /> */}
+      <body>
+        <div className="flex h-screen max-w-[1728px] flex-col justify-between">
+          <Header />
+          <main>{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
