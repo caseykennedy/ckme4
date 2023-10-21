@@ -43,7 +43,9 @@ const FeaturedProjects = () => {
   return (
     <section className="w-full">
       {projectZeda && <ProjectCard project={projectZeda} />}
-      {/* {projectZeda && <ProjectCard project={projectZeda} />} */}
+      {/* {projectZeda && <ProjectCard project={projectZeda} />}
+      {projectZeda && <ProjectCard project={projectZeda} />}
+      {projectZeda && <ProjectCard project={projectZeda} />} */}
     </section>
   );
 };

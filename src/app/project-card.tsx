@@ -6,7 +6,7 @@ import {
   ChevronRightIcon,
   PlusIcon,
 } from "@radix-ui/react-icons";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -51,6 +51,9 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
     project;
 
   const sliderRef = useRef(null);
+  const inViewRef = useRef(null);
+
+  const isInView = useInView(inViewRef, { amount: 0.9, once: true });
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -68,8 +71,9 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
     <>
       <motion.article
         initial="closed"
-        animate="open"
+        animate={isInView ? "open" : "closed"}
         variants={itemVariants}
+        ref={inViewRef}
         className="container grid w-full grid-cols-6 border-b-[2px] border-dotted border-zinc-700 pb-24 pt-4"
       >
         <div className="col-span-full flex flex-col justify-between md:col-span-2">
