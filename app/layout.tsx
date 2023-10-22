@@ -10,17 +10,17 @@ import siteMetadata from "~/data/site-metadata";
 const NBInternational = localFont({
   src: [
     {
-      path: "fonts/NBInternationalPro-Light.woff2",
+      path: "_fonts/NBInternationalPro-Light.woff2",
       weight: "300",
       style: "normal",
     },
     {
-      path: "fonts/NBInternationalPro-Regular.woff2",
+      path: "_fonts/NBInternationalPro-Regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "fonts/NBInternationalPro-Medium.woff2",
+      path: "_fonts/NBInternationalPro-Medium.woff2",
       weight: "500",
       style: "normal",
     },

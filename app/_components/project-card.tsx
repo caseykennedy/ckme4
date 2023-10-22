@@ -17,34 +17,11 @@ import "swiper/css";
 import Img from "~/components/img";
 import type { ProjectShape } from "~/data/projects";
 import { cn } from "~/util";
-
-// SwiperCore.use([Navigation]);
-
-const listVariants = {
-  open: {
-    transition: { staggerChildren: 0.09, delayChildren: 0.25 },
-  },
-  closed: {
-    transition: { staggerChildren: 0.07, staggerDirection: -1 },
-  },
-};
-
-const itemVariants = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000, velocity: -400, duration: 0.5, ease: "easeOut" },
-    },
-  },
-  closed: {
-    y: 8,
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000, velocity: -400, duration: 0.5, ease: "easeOut" },
-    },
-  },
-};
+import {
+  revealVariants,
+  staggerChild,
+  staggerContainer,
+} from "~/util/variants";
 
 export default function ProjectCard({ project }: { project: ProjectShape }) {
   const { client, coverImg, description, repository, services, slug, url } =
@@ -53,7 +30,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
   const sliderRef = useRef(null);
   const inViewRef = useRef(null);
 
-  const isInView = useInView(inViewRef, { amount: 0.9, once: true });
+  const isInView = useInView(inViewRef, { amount: 0.3, once: true });
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -70,18 +47,23 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
   return (
     <>
       <motion.article
-        initial="closed"
-        animate={isInView ? "open" : "closed"}
-        variants={itemVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={revealVariants}
         ref={inViewRef}
-        className="container grid w-full grid-cols-6 border-b-[2px] border-dotted border-zinc-700 pb-24 pt-4"
+        className="container grid w-full grid-cols-6 border-t-[2px] border-dotted border-zinc-700 pb-24 pt-4"
       >
         <div className="col-span-full flex flex-col justify-between md:col-span-2">
-          <motion.div variants={itemVariants}>
+          <motion.div variants={revealVariants}>
             {client}
-            <motion.ul variants={listVariants} className="pt-16 text-zinc-400">
+            <motion.ul
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+              className="block flex-wrap overflow-hidden pt-16 text-zinc-400"
+            >
               {services.map((service, i) => (
-                <motion.li variants={itemVariants} key={i}>
+                <motion.li variants={staggerChild} key={i}>
                   {service}
                 </motion.li>
               ))}
@@ -91,8 +73,13 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
             </div>
           </motion.div>
 
-          <div className="flex flex-col">
-            <div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col"
+          >
+            <motion.div variants={staggerChild}>
               <a
                 href={url}
                 target="_blank"
@@ -101,8 +88,8 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
               >
                 website
               </a>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={staggerChild}>
               <a
                 href={repository}
                 target="_blank"
@@ -111,12 +98,12 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
               >
                 repository
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         <motion.div
-          variants={itemVariants}
+          variants={revealVariants}
           className="relative col-span-full md:col-span-4"
         >
           <Swiper

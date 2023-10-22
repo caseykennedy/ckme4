@@ -20,7 +20,7 @@ function stringToURL(str: string) {
 }
 
 const getBaseUrl = () => {
-  return process.env.NEXT_PUBLIC_BASE_URL || "";
+  return process.env.NEXT_PUBLIC_BASE_URL ?? "";
 };
 
 export { cn, currentYear, getBaseUrl, scrollTop, stringToURL };
