@@ -26,7 +26,13 @@ const clients = [
   "The Life Change Center",
 ];
 
-const ContactItems = ({ title, items }: { title: string; items: string[] }) => (
+export const ContactItems = ({
+  title,
+  items,
+}: {
+  title: string;
+  items: string[];
+}) => (
   <motion.ul
     className="flex-1 overflow-hidden"
     variants={staggerContainer}

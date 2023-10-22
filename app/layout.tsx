@@ -1,7 +1,7 @@
 import { type Metadata } from "next";
 import localFont from "next/font/local";
 
-import "~/styles/globals.css";
+import "./globals.css";
 
 import Footer from "~/components/footer";
 import Header from "~/components/header";
