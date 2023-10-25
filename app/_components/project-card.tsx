@@ -24,7 +24,7 @@ import {
 } from "~/util/variants";
 
 export default function ProjectCard({ project }: { project: ProjectShape }) {
-  const { client, coverImg, description, repository, services, slug, url } =
+  const { client, coverImg, description, repository, services, slug, domain } =
     project;
 
   const sliderRef = useRef(null);
@@ -81,7 +81,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
           >
             <motion.div variants={staggerChild}>
               <a
-                href={url}
+                href={domain}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400"

@@ -10,18 +10,18 @@ export const staggerChild = {
   hidden: {
     opacity: 0,
     y: 16,
-    rotateZ: 3,
+    skewY: 2,
     transition: {},
   },
   visible: {
     opacity: 1,
     y: 0,
-    rotateZ: 0,
+    skewY: 0,
     transition: {
       type: "spring",
       stiffness: 30,
       velocity: 6,
-      duration: 0.35,
+      duration: 0.15,
       ease: "easeOut",
     },
   },

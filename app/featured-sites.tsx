@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 import ProjectLink from "~/components/project-link";
+import projects from "~/data/projects";
 import {
   revealVariants,
   staggerChild,
@@ -22,33 +23,13 @@ export default function FeaturedSites() {
         ref={inViewRef}
         className="container"
       >
-        <motion.div variants={revealVariants}>
-          <ProjectLink />
-        </motion.div>
-        <motion.div variants={revealVariants}>
-          <ProjectLink />
-        </motion.div>
-        <motion.div variants={revealVariants}>
-          <ProjectLink />
-        </motion.div>
-        <motion.div variants={revealVariants}>
-          <ProjectLink />
-        </motion.div>
-        <motion.div variants={revealVariants}>
-          <ProjectLink />
-        </motion.div>
-        <motion.div variants={revealVariants}>
-          <ProjectLink />
-        </motion.div>
-        <motion.div variants={revealVariants}>
-          <ProjectLink />
-        </motion.div>
-        <motion.div variants={revealVariants}>
-          <ProjectLink />
-        </motion.div>
-        <motion.div variants={revealVariants}>
-          <ProjectLink />
-        </motion.div>
+        {projects
+          .filter((project) => !project.featured || undefined)
+          .map((project, i) => (
+            <motion.div variants={revealVariants} key={i}>
+              <ProjectLink project={project} />
+            </motion.div>
+          ))}
       </motion.div>
     </section>
   );

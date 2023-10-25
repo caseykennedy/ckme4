@@ -4,8 +4,16 @@
  */
 await import("./env.mjs");
 
+// @ts-check
+import withPlaiceholder from "@plaiceholder/next";
+
 /** @type {import("next").NextConfig} */
 const config = {
+  images: {
+    remotePatterns: [
+      { hostname: 'res.cloudinary.com' },
+    ],
+  },
   typescript: {
     // Set this to false if you want production builds to abort if there are type errors
     ignoreBuildErrors: process.env.VERCEL_ENV === 'production',
@@ -20,4 +28,4 @@ const config = {
   },
 };
 
-export default config;
+export default withPlaiceholder(config);
