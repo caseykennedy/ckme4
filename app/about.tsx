@@ -13,8 +13,8 @@ const aboutMe = [
 
 export default function About() {
   const inViewRef = useRef(null);
-
   const isInView = useInView(inViewRef, { amount: 0.75, once: true });
+
   return (
     <section className="w-full items-center border-t-[2px] border-dotted border-zinc-700 pb-24 pt-4">
       <div className="container grid grid-cols-6 gap-5">

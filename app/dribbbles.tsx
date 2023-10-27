@@ -1,11 +1,6 @@
-import { type ResourceApiResponse } from "cloudinary/types";
-
 import Drib from "~/components/drib";
-import Img from "~/components/img";
 import cloudinary from "~/lib/cloudinary";
 import getBase64 from "~/lib/get-local-base64";
-import { cn } from "~/util";
-import { staggerChild, staggerContainer } from "~/util/variants";
 
 export type ResourceShape = {
   asset_id: string;
@@ -19,9 +14,6 @@ export type ResourceShape = {
   url: string;
   secure_url: string;
   predominant: object;
-  color: {
-    hex: string;
-  };
 };
 
 export type SearchResponse = ResourceShape & {
@@ -30,17 +22,11 @@ export type SearchResponse = ResourceShape & {
   resources: ResourceShape[];
 };
 
-export type ImageProps = {
+export type ImageShape = {
   id: number;
   asset_id: string;
   secure_url: string;
-  blurDataUrl?: string;
-  color?: {
-    r: number;
-    g: number;
-    b: number;
-    hex: string;
-  };
+  color: string;
 };
 
 export default async function Dribbbles() {
@@ -49,7 +35,8 @@ export default async function Dribbbles() {
     .sort_by("public_id", "asc")
     .max_results(400)
     .execute();
-  const reducedResults: ImageProps[] = [];
+
+  const reducedResults: ImageShape[] = [];
 
   let i = 0;
   for (const result of resources) {
@@ -57,6 +44,7 @@ export default async function Dribbbles() {
       id: i,
       asset_id: result.asset_id,
       secure_url: result.secure_url,
+      color: "",
     });
     i++;
   }
@@ -67,15 +55,12 @@ export default async function Dribbbles() {
 
   const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);
 
-  for (
-    let i = 0;
-    i < reducedResults.length && i < imagesWithBlurDataUrls.length;
-    i++
-  ) {
-    reducedResults[i].color = imagesWithBlurDataUrls[i];
+  for (let i = 0; i < imagesWithBlurDataUrls.length; i++) {
+    // reducedResults[i].color = imagesWithBlurDataUrls[i]?.hex;
+    // console.log("imagesWithBlurDataUrls[i]?.hex", reducedResults[i]?.color);
   }
 
-  console.log("reducedResults", reducedResults);
+  // console.log("reducedResults", reducedResults);
 
   return (
     <div className="grid grid-cols-4 gap-1">

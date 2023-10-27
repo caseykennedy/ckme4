@@ -3,14 +3,14 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-import type { ImageProps } from "../dribbbles";
+import type { ImageShape } from "../dribbbles";
 
 import Img from "./img";
 
 import { cn } from "~/util";
 import { staggerChild } from "~/util/variants";
 
-export default function Drib({ resource }: { resource: ImageProps }) {
+export default function Drib({ resource }: { resource: ImageShape }) {
   const inViewRef = useRef(null);
   const isInView = useInView(inViewRef, { amount: 0.75, once: true });
 
