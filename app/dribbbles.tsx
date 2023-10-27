@@ -1,29 +1,36 @@
 import { type ResourceApiResponse } from "cloudinary/types";
 
+import Drib from "~/components/drib";
 import Img from "~/components/img";
 import cloudinary from "~/lib/cloudinary";
 import getBase64 from "~/lib/get-local-base64";
 import { cn } from "~/util";
+import { staggerChild, staggerContainer } from "~/util/variants";
 
-type SearchResponse = {
-  total_count: number;
-  time: number;
-  resources: {
-    asset_id: string;
-    public_id: string;
-    folder: string;
-    filename: string;
-    format: string;
-    width: string;
-    height: string;
-    aspect_ratio: number;
-    url: string;
-    secure_url: string;
-    predominant: object;
-  }[];
+export type ResourceShape = {
+  asset_id: string;
+  public_id: string;
+  folder: string;
+  filename: string;
+  format: string;
+  width: string;
+  height: string;
+  aspect_ratio: number;
+  url: string;
+  secure_url: string;
+  predominant: object;
+  color: {
+    hex: string;
+  };
 };
 
-type ImageProps = {
+export type SearchResponse = ResourceShape & {
+  total_count: number;
+  time: number;
+  resources: ResourceShape[];
+};
+
+export type ImageProps = {
   id: number;
   asset_id: string;
   secure_url: string;
@@ -37,7 +44,6 @@ type ImageProps = {
 };
 
 export default async function Dribbbles() {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { resources }: SearchResponse = await cloudinary.v2.search
     .expression(`folder:${process.env.CDN_FOLDER}`)
     .sort_by("public_id", "asc")
@@ -61,7 +67,11 @@ export default async function Dribbbles() {
 
   const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);
 
-  for (let i = 0; i < reducedResults.length; i++) {
+  for (
+    let i = 0;
+    i < reducedResults.length && i < imagesWithBlurDataUrls.length;
+    i++
+  ) {
     reducedResults[i].color = imagesWithBlurDataUrls[i];
   }
 
@@ -70,23 +80,7 @@ export default async function Dribbbles() {
   return (
     <div className="grid grid-cols-4 gap-1">
       {reducedResults.map((resource) => (
-        <Img
-          key={resource.asset_id}
-          src={resource.secure_url}
-          alt="alt"
-          width={800}
-          height={530}
-          // placeholder="blur"
-          // blurDataURL={resource.blurDataUrl}
-          style={{
-            backgroundColor: resource.color?.hex,
-            width: "100%",
-            height: "auto",
-          }}
-          color="#fff"
-          className={cn(`object-cover object-top`)}
-          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 25vw"
-        />
+        <Drib resource={resource} key={resource.asset_id} />
       ))}
     </div>
   );
