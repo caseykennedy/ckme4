@@ -24,17 +24,46 @@ export default async function Image() {
       // ImageResponse JSX element
       <div
         style={{
-          fontSize: 128,
-          background: "black",
-          color: "white",
-          width: "100%",
           height: "100%",
+          width: "100%",
           display: "flex",
+          textAlign: "center",
           alignItems: "center",
-          justifyContent: "center",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          flexWrap: "nowrap",
+          backgroundColor: "#000",
+          backgroundSize: "100px 100px",
+          backgroundImage:
+            "radial-gradient(circle at 25px 25px, #fff 2%, transparent 0%), radial-gradient(circle at 75px 75px, #fff 2%, transparent 0%)",
+          backgroundPosition: "0 -8px, 0 -8px",
+          color: "white",
         }}
       >
-        Casey Kennedy
+        <div
+          style={{
+            display: "flex",
+          }}
+        />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 64,
+            fontStyle: "normal",
+            marginTop: 0,
+            lineHeight: 1.8,
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          <b style={{ color: "white" }}>Casey Kennedy</b>
+        </div>
+        <div
+          style={{
+            display: "flex",
+          }}
+        />
       </div>
     ),
     // ImageResponse options

@@ -13,7 +13,7 @@ export default function IndexPage() {
       <Hero />
       <FeaturedProjects />
       <FeaturedSites />
-      {/* <TrippyArt /> */}
+      <TrippyArt />
       <About />
       <Employment />
       <Dribbbles />
