@@ -3,8 +3,10 @@ import localFont from "next/font/local";
 
 import "./globals.css";
 
+import Cursor from "~/components/cursor";
 import Footer from "~/components/footer";
 import Header from "~/components/header";
+import MouseContextProvider from "~/context/mouse-context";
 import siteMetadata from "~/data/site-metadata";
 
 const NBInternational = localFont({
@@ -116,13 +118,16 @@ export default function RootLayout({
         content="#000"
       />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body>
-        <div className="flex h-screen max-w-[1728px] flex-col justify-between">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
-      </body>
+      <MouseContextProvider>
+        <body>
+          <div className="flex h-screen max-w-[1728px] flex-col justify-between">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <Cursor />
+          </div>
+        </body>
+      </MouseContextProvider>
     </html>
   );
 }

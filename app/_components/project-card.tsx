@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback, useContext, useRef } from "react";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -15,6 +15,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 
 import Img from "~/components/img";
+import { MouseContext } from "~/context/mouse-context";
 import type { ProjectShape } from "~/data/projects";
 import { cn } from "~/util";
 import {
@@ -34,15 +35,15 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
     (sliderRef.current as any)?.swiper?.slidePrev();
   }, []);
 
   const handleNext = useCallback(() => {
     if (!sliderRef.current) return;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
     (sliderRef.current as any)?.swiper?.slideNext();
   }, []);
+
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   return (
     <>
@@ -52,6 +53,8 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
         variants={revealVariants}
         ref={inViewRef}
         className="container grid w-full grid-cols-6 border-t-[2px] border-dotted border-zinc-700 pb-24 pt-4"
+        onMouseEnter={() => cursorChangeHandler("hovered")}
+        onMouseLeave={() => cursorChangeHandler("")}
       >
         <div className="col-span-full flex flex-col justify-between md:col-span-2">
           <motion.div variants={revealVariants}>

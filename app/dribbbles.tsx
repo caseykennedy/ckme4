@@ -63,7 +63,7 @@ export default async function Dribbbles() {
   // console.log("reducedResults", reducedResults);
 
   return (
-    <div className="grid grid-cols-4 gap-1">
+    <div className="grid grid-cols-2 gap-1 pb-24 md:grid-cols-3 lg:grid-cols-4">
       {reducedResults.map((resource) => (
         <Drib resource={resource} key={resource.asset_id} />
       ))}

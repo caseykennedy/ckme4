@@ -1,11 +1,13 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
-interface MousePosition {
+export type MousePosition = {
   x: number;
   y: number;
-}
+};
 
-export function useMousePosition(): MousePosition {
+export default function useMousePosition(): MousePosition {
   const [mousePosition, setMousePosition] = useState<MousePosition>({
     x: 0,
     y: 0,
@@ -16,10 +18,10 @@ export function useMousePosition(): MousePosition {
       setMousePosition({ x: event.clientX, y: event.clientY });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 

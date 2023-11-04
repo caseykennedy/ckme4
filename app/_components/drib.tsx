@@ -12,7 +12,7 @@ import { staggerChild } from "~/util/variants";
 
 export default function Drib({ resource }: { resource: ImageShape }) {
   const inViewRef = useRef(null);
-  const isInView = useInView(inViewRef, { amount: 0.75, once: true });
+  const isInView = useInView(inViewRef, { amount: 0.5, once: true });
 
   return (
     <motion.div
@@ -30,7 +30,7 @@ export default function Drib({ resource }: { resource: ImageShape }) {
         // placeholder="blur"
         // blurDataURL={resource.blurDataUrl}
         style={{
-          backgroundColor: resource.color?.hex,
+          // backgroundColor: resource.color?.hex,
           width: "100%",
           height: "auto",
         }}
