@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-import { staggerChild, staggerContainer } from "~/util/variants";
+import { staggerChild, staggerContainer } from "~/utils/variants";
 
 const aboutMe = [
   "Based in the Nevada desert, I am an independent web developer and designer working with people worldwide.",

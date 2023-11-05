@@ -1,11 +1,13 @@
 "use client";
 
+import { useContext } from "react";
 import { motion } from "framer-motion";
 
 import TextReveal from "~/components/text-reveal";
+import { MouseContext } from "~/context/mouse-context";
 import { contact, links } from "~/data/info";
-import { cn } from "~/util";
-import { staggerChild, staggerContainer } from "~/util/variants";
+import { cn } from "~/utils";
+import { staggerChild, staggerContainer } from "~/utils/variants";
 
 const capabilities = [
   "Full-stack dev",
@@ -58,6 +60,7 @@ const ListItems = ({
 );
 
 export default function Hero() {
+  const { cursorChangeHandler } = useContext(MouseContext);
   return (
     <section className="w-full items-center pb-24 lg:h-[66vh]">
       <div className="container grid grid-cols-4 gap-8 lg:grid-cols-5 lg:gap-5 xl:grid-cols-6">
@@ -81,6 +84,15 @@ export default function Hero() {
               href={`mailto:${contact.email}`}
               target="_blank"
               rel="noopener noreferrer"
+              onMouseEnter={() =>
+                cursorChangeHandler({
+                  type: "hover",
+                  text: "Say hi ✌️",
+                })
+              }
+              onMouseLeave={() =>
+                cursorChangeHandler({ type: "default", text: "", figure: "" })
+              }
             >
               {contact.email}
             </a>

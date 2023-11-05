@@ -2,13 +2,23 @@
 
 import React, { createContext, ReactNode, useState } from "react";
 
+type CursorType = {
+  type: "default" | "hover" | "hidden" | "figure";
+  text?: string;
+  figure?: string;
+};
+
 type MouseContextProps = {
-  cursorType: string;
-  cursorChangeHandler: (cursorType: string) => void;
+  cursorType: CursorType;
+  cursorChangeHandler: (cursorType: CursorType) => void;
 };
 
 export const MouseContext = createContext<MouseContextProps>({
-  cursorType: "",
+  cursorType: {
+    type: "default",
+    text: "",
+    figure: "",
+  },
   cursorChangeHandler: () => {},
 });
 
@@ -19,15 +29,19 @@ interface MouseContextProviderProps {
 export default function MouseContextProvider({
   children,
 }: MouseContextProviderProps) {
-  const [cursorType, setCursorType] = useState<string>("");
+  const [cursorType, setCursorType] = useState<CursorType>({
+    type: "default",
+    text: "",
+    figure: "",
+  });
 
-  const cursorChangeHandler = (newCursorType: string) => {
+  const cursorChangeHandler = (newCursorType: CursorType) => {
     setCursorType(newCursorType);
   };
 
   const contextValue: MouseContextProps = {
-    cursorType: cursorType,
-    cursorChangeHandler: cursorChangeHandler,
+    cursorType,
+    cursorChangeHandler,
   };
 
   return (

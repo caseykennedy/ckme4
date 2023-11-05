@@ -1,14 +1,16 @@
 "use client";
 
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { motion, useInView } from "framer-motion";
 
+import { MouseContext } from "~/context/mouse-context";
 import { type ProjectShape } from "~/data/projects";
-import { staggerChild } from "~/util/variants";
+import { staggerChild } from "~/utils/variants";
 
 export default function ProjectLink({ project }: { project: ProjectShape }) {
   const { client, year, domain } = project;
+  const { cursorChangeHandler } = useContext(MouseContext);
   const inViewRef = useRef(null);
   const isInView = useInView(inViewRef, { amount: 0.9, once: true });
   return (
@@ -20,7 +22,16 @@ export default function ProjectLink({ project }: { project: ProjectShape }) {
       href={`https://${domain}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-ffull group grid grid-cols-6 border-t-[2px] border-dotted border-zinc-700 py-5 text-zinc-400 transition-colors last:border-b-[2px]"
+      className="w-ffull group grid grid-cols-6 border-t-[2px] border-dotted border-zinc-700 py-5 text-zinc-400 transition-colors last:border-b-[2px] hover:bg-zinc-950"
+      onMouseEnter={() =>
+        cursorChangeHandler({
+          type: "figure",
+          figure: project.coverImg,
+        })
+      }
+      onMouseLeave={() =>
+        cursorChangeHandler({ type: "default", text: "", figure: "" })
+      }
     >
       <div className="col-span-2 flex flex-row flex-nowrap">
         <div className="relative w-32 text-white transition-all group-hover:text-zinc-400">

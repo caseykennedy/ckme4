@@ -5,8 +5,8 @@ import { ArrowDownIcon } from "@radix-ui/react-icons";
 import { motion, useInView } from "framer-motion";
 
 import employment, { type EmploymentShape } from "~/data/employment";
-import { cn } from "~/util";
-import { staggerChild } from "~/util/variants";
+import { cn } from "~/utils";
+import { staggerChild } from "~/utils/variants";
 
 const JobCard = ({
   job,

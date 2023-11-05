@@ -15,14 +15,20 @@ import "swiper/css/navigation";
 import "swiper/css";
 
 import Img from "~/components/img";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "~/components/ui/accordion";
 import { MouseContext } from "~/context/mouse-context";
 import type { ProjectShape } from "~/data/projects";
-import { cn } from "~/util";
+import { cn } from "~/utils";
 import {
   revealVariants,
   staggerChild,
   staggerContainer,
-} from "~/util/variants";
+} from "~/utils/variants";
 
 export default function ProjectCard({ project }: { project: ProjectShape }) {
   const { client, coverImg, description, repository, services, slug, domain } =
@@ -43,7 +49,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
     (sliderRef.current as any)?.swiper?.slideNext();
   }, []);
 
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  const { cursorChangeHandler } = useContext(MouseContext);
 
   return (
     <>
@@ -52,9 +58,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
         animate={isInView ? "visible" : "hidden"}
         variants={revealVariants}
         ref={inViewRef}
-        className="container grid w-full grid-cols-6 border-t-[2px] border-dotted border-zinc-700 pb-24 pt-4"
-        onMouseEnter={() => cursorChangeHandler("hovered")}
-        onMouseLeave={() => cursorChangeHandler("")}
+        className="container grid w-full grid-cols-6 gap-5 border-t-[2px] border-dotted border-zinc-700 pb-24 pt-4"
       >
         <div className="col-span-full flex flex-col justify-between md:col-span-2">
           <motion.div variants={revealVariants}>
@@ -72,7 +76,21 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
               ))}
             </motion.ul>
             <div className="pt-8">
-              <PlusIcon />
+              <Accordion type="single" collapsible>
+                <AccordionItem value="details">
+                  <AccordionTrigger
+                    onMouseEnter={() =>
+                      cursorChangeHandler({ type: "hover", text: "details" })
+                    }
+                    onMouseLeave={() =>
+                      cursorChangeHandler({ type: "default", text: "" })
+                    }
+                  />
+                  <AccordionContent>
+                    <p className="text-zinc-400">{description}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </div>
           </motion.div>
 
@@ -88,6 +106,12 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400"
+                onMouseEnter={() =>
+                  cursorChangeHandler({ type: "hover", text: "web" })
+                }
+                onMouseLeave={() =>
+                  cursorChangeHandler({ type: "default", text: "" })
+                }
               >
                 website
               </a>
@@ -98,6 +122,12 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400"
+                onMouseEnter={() =>
+                  cursorChangeHandler({ type: "hover", text: "repo" })
+                }
+                onMouseLeave={() =>
+                  cursorChangeHandler({ type: "default", text: "" })
+                }
               >
                 repository
               </a>
@@ -128,7 +158,15 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
             ref={sliderRef}
           >
             <SwiperSlide>
-              <div className="aspect">
+              <div
+                className="aspect"
+                onMouseEnter={() =>
+                  cursorChangeHandler({ type: "hover", text: "drag" })
+                }
+                onMouseLeave={() =>
+                  cursorChangeHandler({ type: "default", text: "" })
+                }
+              >
                 <Img
                   src={coverImg}
                   alt="alt"
@@ -145,7 +183,15 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
             </SwiperSlide>
 
             <SwiperSlide>
-              <div className="aspect">
+              <div
+                className="aspect"
+                onMouseEnter={() =>
+                  cursorChangeHandler({ type: "hover", text: "drag" })
+                }
+                onMouseLeave={() =>
+                  cursorChangeHandler({ type: "default", text: "" })
+                }
+              >
                 <Img
                   src={coverImg}
                   alt="alt"
@@ -161,11 +207,29 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
               </div>
             </SwiperSlide>
           </Swiper>
-          <div className="flex pt-3">
-            <div onClick={handlePrev} className="prev-arrow cursor-pointer">
+          <div className="z-40 flex pt-3">
+            <div
+              onClick={handlePrev}
+              className="prev-arrow cursor-pointer"
+              onMouseEnter={() =>
+                cursorChangeHandler({ type: "hover", text: "prev" })
+              }
+              onMouseLeave={() =>
+                cursorChangeHandler({ type: "default", text: "" })
+              }
+            >
               <ChevronLeftIcon className="h-5 w-5" />
             </div>
-            <div onClick={handleNext} className="next-arrow cursor-pointer">
+            <div
+              onClick={handleNext}
+              className="next-arrow cursor-pointer"
+              onMouseEnter={() =>
+                cursorChangeHandler({ type: "hover", text: "next" })
+              }
+              onMouseLeave={() =>
+                cursorChangeHandler({ type: "default", text: "" })
+              }
+            >
               <ChevronRightIcon className="h-5 w-5" />
             </div>
           </div>

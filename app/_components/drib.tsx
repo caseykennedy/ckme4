@@ -7,8 +7,8 @@ import type { ImageShape } from "../dribbbles";
 
 import Img from "./img";
 
-import { cn } from "~/util";
-import { staggerChild } from "~/util/variants";
+import { cn } from "~/utils";
+import { staggerChild } from "~/utils/variants";
 
 export default function Drib({ resource }: { resource: ImageShape }) {
   const inViewRef = useRef(null);

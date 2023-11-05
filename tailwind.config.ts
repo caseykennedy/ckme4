@@ -16,10 +16,6 @@ export default {
       },
     },
     extend: {
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
       colors: {
         frost: {
           100: "hsla(221, 17%, 86%, 1)",
@@ -38,6 +34,9 @@ export default {
         sans: ["var(--font-NBInternational)", "Arial", ...fontFamily.sans],
       },
       fontSize: {},
+      transitionDuration: {
+        DEFAULT: "200ms",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -48,8 +47,9 @@ export default {
           to: { height: "0" },
         },
       },
-      transitionDuration: {
-        DEFAULT: "200ms",
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },

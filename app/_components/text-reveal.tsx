@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { staggerChild, staggerContainer } from "~/util/variants";
+import { staggerChild, staggerContainer } from "~/utils/variants";
 
 export default function TextReveal({
   text = "Web development and visual design for people, teams and visionaries",

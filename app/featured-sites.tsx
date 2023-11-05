@@ -9,7 +9,7 @@ import {
   revealVariants,
   staggerChild,
   staggerContainer,
-} from "~/util/variants";
+} from "~/utils/variants";
 
 export default function FeaturedSites() {
   return (
