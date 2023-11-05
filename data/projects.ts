@@ -27,8 +27,8 @@ export const projects: ProjectShape[] = [
     year: 2021,
     category: "case study",
     color: "#8E72FF",
-    coverImg: "/images/projects/zeda/cover.jpg",
-    imgFolder: "/images/projects/ck-portfolio",
+    coverImg: "/images/cover.png",
+    imgFolder: "/images/projects/zeda",
     description:
       "Zeda is a leading global technology solutions company. Our foundation combines expertise from diverse industries, including additive manufacturing, nanotech, precision machining and regulatory know-how.",
     tagline: "Building the future together",
@@ -55,7 +55,7 @@ export const projects: ProjectShape[] = [
     year: 2019,
     category: "website",
     color: "#8E72FF",
-    coverImg: "/images/projects/cahuilla-casino/cover.png",
+    coverImg: "/images/cover.png",
     imgFolder: "/images/projects/cahuilla-casino",
     technology: ["Wordpress", "PHP", "Javascript", "CSS"],
     services: ["Visual Design", "Web Development", "Branding"],
@@ -68,7 +68,7 @@ export const projects: ProjectShape[] = [
     year: 2020,
     category: "website",
     color: "#8E72FF",
-    coverImg: "/images/projects/ccvap/cover.png",
+    coverImg: "/images/cover.png",
     imgFolder: "/images/projects/ccvap",
     technology: ["React", "Gatsby", "Typescript", "Sanity CMS", "theme-ui"],
     services: ["Visual Design", "Web Development", "Content Strategy"],
@@ -82,7 +82,7 @@ export const projects: ProjectShape[] = [
     year: 2021,
     category: "website",
     color: "#000000",
-    coverImg: "/images/projects/freshbakin/cover.png",
+    coverImg: "/images/cover.png",
     imgFolder: "/images/projects/freshbakin",
     technology: [
       "React",
@@ -102,7 +102,7 @@ export const projects: ProjectShape[] = [
     year: 2020,
     category: "website",
     color: "#000000",
-    coverImg: "/images/projects/meco/cover.png",
+    coverImg: "/images/cover.png",
     imgFolder: "/images/projects/meco",
     technology: [
       "React",
@@ -122,7 +122,7 @@ export const projects: ProjectShape[] = [
     year: 2021,
     category: "website",
     color: "#000000",
-    coverImg: "/images/projects/bridge/cover.png",
+    coverImg: "/images/cover.png",
     imgFolder: "/images/projects/bridge",
     technology: [
       "React",
@@ -142,7 +142,7 @@ export const projects: ProjectShape[] = [
     year: 2021,
     category: "website",
     color: "#000000",
-    coverImg: "/images/projects/tlcc/cover.png",
+    coverImg: "/images/cover.png",
     imgFolder: "/images/projects/tlcc",
     technology: [
       "React",
@@ -162,7 +162,7 @@ export const projects: ProjectShape[] = [
     year: 2021,
     category: "website",
     color: "#000000",
-    coverImg: "/images/projects/dweb/cover.png",
+    coverImg: "/images/cover.png",
     imgFolder: "/images/projects/dweb",
     technology: [
       "React",
@@ -182,7 +182,7 @@ export const projects: ProjectShape[] = [
     year: 2021,
     category: "website",
     color: "#000000",
-    coverImg: "/images/projects/oic/cover.png",
+    coverImg: "/images/cover.png",
     imgFolder: "/images/projects/oic",
     technology: [
       "React",
@@ -202,7 +202,7 @@ export const projects: ProjectShape[] = [
     year: 2022,
     category: "website",
     color: "#000000",
-    coverImg: "/images/projects/miner49/cover.png",
+    coverImg: "/images/cover.png",
     imgFolder: "/images/projects/miner49",
     technology: [
       "React",
