@@ -16,7 +16,7 @@ export default function Cursor() {
       <div
         style={{ left: `${x}px`, top: `${y}px` }}
         className={cn(
-          ` pointer-events-none fixed left-0 top-0 z-50 flex h-4 w-4 translate-x-4 translate-y-4 items-center justify-center rounded-full bg-white text-black opacity-0 mix-blend-difference ease-in`,
+          `pointer-events-none fixed left-0 top-0 z-50 hidden h-4 w-4 translate-x-4 translate-y-4 items-center justify-center rounded-full bg-white text-black opacity-0 mix-blend-difference ease-in sm:flex`,
           {
             hidden: cursorType.type === "hidden",
             "opacity-1": x > 0 && y > 0,
