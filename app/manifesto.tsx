@@ -67,8 +67,7 @@ export default function Manifesto() {
         </Item>
         <Item>Out of the box, but never out of touch.</Item>
         <Item>
-          Beginner’s mindset. I keep an open and playful mind and aim to learn
-          whenever possible
+          I keep an open and playful mind and aim to learn whenever possible
         </Item>
       </ul>
     </Section>

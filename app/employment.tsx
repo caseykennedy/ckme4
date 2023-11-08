@@ -26,7 +26,7 @@ const JobCard = ({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       className={cn(
-        `col-span-1 pt-3 sm:border-t-0 sm:pt-0 lg:col-span-2`,
+        `col-span-1 border-t-[2px] border-dotted border-zinc-800 pt-3 sm:border-t-0 sm:pt-0 lg:col-span-2`,
         className,
       )}
     >

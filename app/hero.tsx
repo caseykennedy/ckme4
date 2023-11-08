@@ -1,8 +1,10 @@
 "use client";
 
 import { useContext } from "react";
+import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
 
+import TetraGeo from "~/components/tetra-geo";
 import TextReveal from "~/components/text-reveal";
 import Section from "~/components/ui/section";
 import { MouseContext } from "~/context/mouse-context";
@@ -63,7 +65,7 @@ const ListItems = ({
 export default function Hero() {
   const { cursorChangeHandler } = useContext(MouseContext);
   return (
-    <Section className="items-center pt-0 sm:pt-0 lg:h-[66vh]">
+    <Section className="items-center pb-0 pt-0 sm:pb-0 sm:pt-0 lg:h-[66vh]">
       <div className="container grid grid-cols-4 gap-8 lg:grid-cols-5 lg:gap-5 xl:grid-cols-6">
         <div className="col-span-full mb-8 pt-[6.25rem] md:col-span-3 lg:col-span-3">
           <h2 className="max-w-[26ch] flex-1 text-2xl tracking-tight text-white">
@@ -113,6 +115,41 @@ export default function Hero() {
           className="hidden lg:block"
         />
         <ListItems title="Clients" items={clients} />
+      </div>
+
+      <div>
+        <Canvas camera={{ position: [0, 2, 10], fov: 60 }}>
+          <ambientLight intensity={1} />
+          <spotLight
+            position={[20, 20, 25]}
+            penumbra={1}
+            angle={0.25}
+            color="black"
+            // castShadow
+            // shadow-mapSize={[512, 512]}
+          />
+          <directionalLight position={[0, 5, -4]} intensity={20} />
+          <directionalLight
+            position={[0, -15, -0]}
+            intensity={19}
+            color="blue"
+          />
+          <TetraGeo
+            flatShading={false}
+            position={[0, 1, 0]}
+            radius={3}
+            speed={0.0035}
+            wireframe={false}
+          />
+          {/* <TetraGeo
+            flatShading={false}
+            position={[0, 1, 0]}
+            radius={5}
+            detail={0}
+            speed={0.00079}
+            wireframe={true}
+          /> */}
+        </Canvas>
       </div>
     </Section>
   );

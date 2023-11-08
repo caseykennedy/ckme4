@@ -14,6 +14,7 @@
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-separator": "^1.0.3",
+    "@react-three/fiber": "^8.15.10",
     "@t3-oss/env-nextjs": "^0.7.0",
     "@vercel/og": "^0.5.19",
     "class-variance-authority": "^0.7.0",
@@ -30,6 +31,7 @@
     "swiper": "^10.3.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.158.0",
     "vercel": "^32.4.1",
     "zod": "^3.22.4"
   },
@@ -40,6 +42,7 @@
     "@types/prettier": "^3.0.0",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
+    "@types/three": "^0.158.2",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "autoprefixer": "^10.4.14",

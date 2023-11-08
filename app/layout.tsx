@@ -121,7 +121,7 @@ export default function RootLayout({
       <MouseContextProvider>
         <body>
           <Header />
-          <main className="max-w-[1500px] px-2 sm:px-5">{children}</main>
+          <main className="mx-2 max-w-[1500px] sm:mx-5">{children}</main>
           <Footer />
           <Cursor />
         </body>
