@@ -120,12 +120,10 @@ export default function RootLayout({
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <MouseContextProvider>
         <body>
-          <div className="flex h-screen max-w-[1728px] flex-col justify-between">
-            <Header />
-            <main>{children}</main>
-            <Footer />
-            <Cursor />
-          </div>
+          <Header />
+          <main className="max-w-[1500px] px-2 sm:px-5">{children}</main>
+          <Footer />
+          <Cursor />
         </body>
       </MouseContextProvider>
     </html>

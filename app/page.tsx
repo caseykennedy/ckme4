@@ -5,8 +5,7 @@ import FeaturedProjects from "./featured-projects";
 import FeaturedSites from "./featured-sites";
 import Hero from "./hero";
 import Manifesto from "./manifesto";
-
-import TrippyArt from "~/components/trippy-art";
+import TrippyArt from "./trippy-art";
 
 export default function IndexPage() {
   return (

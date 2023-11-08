@@ -18,12 +18,12 @@ export default function Cursor() {
         className={cn(
           `pointer-events-none fixed left-0 top-0 z-50 hidden h-4 w-4 translate-x-4 translate-y-4 items-center justify-center rounded-full bg-white text-black opacity-0 mix-blend-difference ease-in sm:flex`,
           {
-            hidden: cursorType.type === "hidden",
             "opacity-1": x > 0 && y > 0,
             "h-12 w-fit translate-x-3 translate-y-3 px-6 mix-blend-normal":
               cursorType.type === "hover",
             "h-52 w-52 -translate-x-2 -translate-y-2":
               cursorType.type === "figure",
+            "sm:hidden ": cursorType.type === "hidden",
           },
         )}
       >

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 import ProjectLink from "~/components/project-link";
+import Section from "~/components/ui/section";
 import projects from "~/data/projects";
 import {
   revealVariants,
@@ -13,7 +14,7 @@ import {
 
 export default function FeaturedSites() {
   return (
-    <section className="w-full">
+    <Section className="">
       <motion.div className="container">
         {projects
           .filter((project) => !project.featured || undefined)
@@ -21,6 +22,6 @@ export default function FeaturedSites() {
             <ProjectLink project={project} key={i} />
           ))}
       </motion.div>
-    </section>
+    </Section>
   );
 }

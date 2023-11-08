@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { ArrowDownIcon } from "@radix-ui/react-icons";
 import { motion, useInView } from "framer-motion";
 
+import Section from "~/components/ui/section";
 import employment, { type EmploymentShape } from "~/data/employment";
 import { cn } from "~/utils";
 import { staggerChild } from "~/utils/variants";
@@ -24,7 +25,10 @@ const JobCard = ({
       variants={staggerChild}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className={cn(`col-span-2`, className)}
+      className={cn(
+        `col-span-1 pt-3 sm:border-t-0 sm:pt-0 lg:col-span-2`,
+        className,
+      )}
     >
       <div>
         {company}{" "}
@@ -52,31 +56,33 @@ const JobCard = ({
 
 export default function Employment() {
   return (
-    <section className="w-full items-center border-t-[2px] border-dotted border-zinc-700 pb-24 pt-4">
+    <Section className="items-center border-t-[2px] border-dotted border-zinc-700">
       <div className="container grid grid-cols-6 gap-5">
-        <div className="col-span-full text-zinc-400 md:col-span-1">
+        <div className="col-span-full mb-16 text-zinc-400 md:col-span-1">
           Employment
         </div>
-        <motion.div className="col-span-full grid grid-cols-5 gap-5 gap-y-24 md:col-span-5">
-          {employment[0] && <JobCard job={employment[0]} />}
+        <motion.div className="col-span-full grid grid-cols-1 gap-5 gap-y-12 sm:grid-cols-2 sm:gap-y-24 lg:col-span-5 lg:grid-cols-5">
+          {employment[0] && (
+            <JobCard job={employment[0]} className="border-t-0 " />
+          )}
 
           {employment[1] && (
-            <JobCard job={employment[1]} className="col-start-4" />
+            <JobCard job={employment[1]} className="lg:col-start-4" />
           )}
 
           {employment[2] && (
-            <JobCard job={employment[2]} className="col-start-2" />
+            <JobCard job={employment[2]} className="lg:col-start-2" />
           )}
 
           {employment[3] && <JobCard job={employment[3]} />}
 
           {employment[4] && (
-            <JobCard job={employment[4]} className="col-start-2" />
+            <JobCard job={employment[4]} className="lg:col-start-2" />
           )}
 
           {employment[5] && <JobCard job={employment[5]} />}
         </motion.div>
       </div>
-    </section>
+    </Section>
   );
 }

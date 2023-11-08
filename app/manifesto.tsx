@@ -53,8 +53,8 @@ const Item = ({ children }: { children: React.ReactNode }) => {
 
 export default function Manifesto() {
   return (
-    <Section className="border-0">
-      <ul className="container text-2xl lg:text-5xl">
+    <Section className="border-t-0">
+      <ul className="text-2xl lg:text-5xl">
         <Item>
           Let’s keep it real. I value crystal clear, upfront communication.
         </Item>

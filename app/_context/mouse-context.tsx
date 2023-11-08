@@ -37,6 +37,7 @@ export default function MouseContextProvider({
 
   const cursorChangeHandler = (newCursorType: CursorType) => {
     setCursorType(newCursorType);
+    // console.log("cursorChangeHandler", newCursorType);
   };
 
   const contextValue: MouseContextProps = {

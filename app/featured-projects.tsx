@@ -4,7 +4,7 @@ import projects from "~/data/projects";
 
 export default function FeaturedProjects() {
   return (
-    <Section className="w-full">
+    <Section className="border-t-[2px] border-dotted border-zinc-700">
       {projects
         .filter((project) => project.featured === true)
         .map((project, i) => (

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { motion } from "framer-motion";
 
 import TextReveal from "~/components/text-reveal";
+import Section from "~/components/ui/section";
 import { MouseContext } from "~/context/mouse-context";
 import { contact, links } from "~/data/info";
 import { cn } from "~/utils";
@@ -62,7 +63,7 @@ const ListItems = ({
 export default function Hero() {
   const { cursorChangeHandler } = useContext(MouseContext);
   return (
-    <section className="w-full items-center pb-24 lg:h-[66vh]">
+    <Section className="items-center pt-0 sm:pt-0 lg:h-[66vh]">
       <div className="container grid grid-cols-4 gap-8 lg:grid-cols-5 lg:gap-5 xl:grid-cols-6">
         <div className="col-span-full mb-8 pt-[6.25rem] md:col-span-3 lg:col-span-3">
           <h2 className="max-w-[26ch] flex-1 text-2xl tracking-tight text-white">
@@ -113,6 +114,6 @@ export default function Hero() {
         />
         <ListItems title="Clients" items={clients} />
       </div>
-    </section>
+    </Section>
   );
 }
