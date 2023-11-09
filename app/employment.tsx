@@ -18,7 +18,7 @@ const JobCard = ({
 }) => {
   const { company, position, startDate, endDate, description, focus } = job;
   const inViewRef = useRef(null);
-  const isInView = useInView(inViewRef, { amount: 0.5, once: true });
+  const isInView = useInView(inViewRef, { amount: 0.35, once: true });
   return (
     <motion.div
       ref={inViewRef}

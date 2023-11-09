@@ -14,7 +14,7 @@ const aboutMe = [
 
 export default function About() {
   const inViewRef = useRef(null);
-  const isInView = useInView(inViewRef, { amount: 0.75, once: true });
+  const isInView = useInView(inViewRef, { amount: 0.35, once: true });
 
   return (
     <Section className="w-full items-center border-t-[2px] border-dotted border-zinc-700">
