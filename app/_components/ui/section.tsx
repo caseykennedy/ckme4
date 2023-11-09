@@ -8,10 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 export default function Section({ children, className, ...props }: Props) {
   return (
     <section
-      className={cn(
-        "relative w-full overflow-hidden pb-16 pt-3 sm:pt-4",
-        className,
-      )}
+      className={cn("relative w-full pb-16 pt-3 sm:pt-4", className)}
       {...props}
     >
       {children}

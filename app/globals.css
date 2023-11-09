@@ -20,6 +20,7 @@
   }
 
   :root {
+    --site-width: 1680px;
     --swiper-navigation-top-offset: ;
     --swiper-navigation-size: 20px;
   }

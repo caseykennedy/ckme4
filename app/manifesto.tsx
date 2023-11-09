@@ -6,30 +6,11 @@ import { motion, useInView } from "framer-motion";
 import Section from "~/components/ui/section";
 import { cn } from "~/utils";
 
-// const variants = {
-//   hidden: {
-//     color:
-//     transition: {},
-//   },
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     skewY: 0,
-//     transition: {
-//       type: "spring",
-//       stiffness: 30,
-//       velocity: 6,
-//       duration: 0.15,
-//       ease: "easeOut",
-//     },
-//   },
-// };
-
 const Item = ({ children }: { children: React.ReactNode }) => {
   const inViewRef = useRef(null);
   const isInView = useInView(inViewRef, {
     margin: "-38% 0px -38% 0px",
-    amount: 0.8,
+    amount: 0.7,
     once: false,
   });
   return (

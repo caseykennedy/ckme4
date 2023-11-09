@@ -44,7 +44,7 @@ const ListItems = ({
 }) => (
   <motion.ul
     className={cn(
-      `col-span-1 hidden pt-4 leading-tight text-zinc-400 xl:block`,
+      `col-span-1 hidden pt-4 leading-snug text-zinc-400 xl:block`,
       className,
     )}
     variants={staggerContainer}
@@ -65,7 +65,7 @@ const ListItems = ({
 export default function Hero() {
   const { cursorChangeHandler } = useContext(MouseContext);
   return (
-    <Section className="items-center pb-0 pt-0 sm:pb-0 sm:pt-0 lg:h-[66vh]">
+    <Section className="flex min-h-[500px] flex-col items-center justify-between pb-0 pt-0 sm:pb-0 sm:pt-0 xl:h-[66vh]">
       <div className="container grid grid-cols-4 gap-8 lg:grid-cols-5 lg:gap-5 xl:grid-cols-6">
         <div className="col-span-full mb-8 pt-[6.25rem] md:col-span-3 lg:col-span-3">
           <h2 className="max-w-[26ch] flex-1 text-2xl tracking-tight text-white">
@@ -74,7 +74,7 @@ export default function Hero() {
         </div>
 
         <motion.ul
-          className="col-span-2 pt-4 leading-tight text-zinc-400 md:col-span-1 lg:col-span-1"
+          className="col-span-2 pt-4 leading-snug text-zinc-400 md:col-span-1 lg:col-span-1"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
@@ -117,31 +117,32 @@ export default function Hero() {
         <ListItems title="Clients" items={clients} />
       </div>
 
-      <div>
-        <Canvas camera={{ position: [0, 2, 10], fov: 60 }}>
-          <ambientLight intensity={1} />
-          <spotLight
-            position={[20, 20, 25]}
-            penumbra={1}
-            angle={0.25}
-            color="black"
-            // castShadow
-            // shadow-mapSize={[512, 512]}
-          />
-          <directionalLight position={[0, 5, -4]} intensity={20} />
-          <directionalLight
-            position={[0, -15, -0]}
-            intensity={19}
-            color="blue"
-          />
-          <TetraGeo
-            flatShading={false}
-            position={[0, 1, 0]}
-            radius={3}
-            speed={0.0035}
-            wireframe={false}
-          />
-          {/* <TetraGeo
+      <div className="container flex justify-end md:justify-start">
+        <div className="w-16">
+          <Canvas camera={{ position: [0, 1, 16], fov: 60 }}>
+            <ambientLight intensity={1} />
+            <spotLight
+              position={[20, 20, 25]}
+              penumbra={1}
+              angle={0.25}
+              color="black"
+              // castShadow
+              // shadow-mapSize={[512, 512]}
+            />
+            <directionalLight position={[0, 5, -4]} intensity={20} />
+            <directionalLight
+              position={[0, -15, -0]}
+              intensity={19}
+              color="blue"
+            />
+            <TetraGeo
+              flatShading={false}
+              position={[0, 1, 0]}
+              radius={3}
+              speed={0.0075}
+              wireframe={false}
+            />
+            {/* <TetraGeo
             flatShading={false}
             position={[0, 1, 0]}
             radius={5}
@@ -149,7 +150,8 @@ export default function Hero() {
             speed={0.00079}
             wireframe={true}
           /> */}
-        </Canvas>
+          </Canvas>
+        </div>
       </div>
     </Section>
   );

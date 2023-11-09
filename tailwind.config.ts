@@ -28,6 +28,9 @@ export default {
           950: "hsla(221, 17%, 6%, 1)",
         },
       },
+      maxWidth: {
+        site: "var(--site-width)",
+      },
       fontFamily: {
         sans: ["var(--font-NBInternational)", "Arial", ...fontFamily.sans],
       },

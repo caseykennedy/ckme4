@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unknown-property */
-
 import React, { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
@@ -13,8 +11,14 @@ type Props = {
   [x: string]: unknown;
 };
 
-const TetraGeo = (props: Props) => {
-  const { detail, flatShading, wireframe, radius, speed } = props;
+const TetraGeo = ({
+  detail,
+  flatShading,
+  wireframe,
+  radius,
+  speed,
+  ...props
+}: Props) => {
   // This reference will give us direct access to the mesh so we can animate it
   const mesh = useRef<THREE.Mesh>(null);
 
@@ -43,7 +47,7 @@ const TetraGeo = (props: Props) => {
       <tetrahedronGeometry attach="geometry" args={[radius, detail]} />
       <meshStandardMaterial
         attach="material"
-        color="#662a12"
+        color="#87e4c3"
         flatShading={flatShading}
         wireframe={wireframe}
       />
@@ -52,8 +56,6 @@ const TetraGeo = (props: Props) => {
 };
 
 export default TetraGeo;
-
-// ___________________________________________________________________
 
 const defaultProps = {
   detail: 0,

@@ -8,6 +8,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/navigation";
 
+import Pill from "./ui/pill";
+
 import "swiper/css";
 
 import Img from "~/components/img";
@@ -27,8 +29,18 @@ import {
 } from "~/utils/variants";
 
 export default function ProjectCard({ project }: { project: ProjectShape }) {
-  const { client, coverImg, description, repository, services, slug, domain } =
-    project;
+  const {
+    client,
+    coverImg,
+    deliverables,
+    description,
+    domain,
+    repository,
+    services,
+    slug,
+    technology,
+    objectives,
+  } = project;
 
   const sliderRef = useRef(null);
   const inViewRef = useRef(null);
@@ -62,7 +74,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="block flex-wrap overflow-hidden pt-16 text-zinc-400"
+            className="pt-16 text-zinc-400"
           >
             {services.map((service, i) => (
               <motion.li variants={staggerChild} key={i}>
@@ -81,8 +93,38 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
                     cursorChangeHandler({ type: "default", text: "" })
                   }
                 />
-                <AccordionContent>
-                  <p className="text-zinc-400">{description}</p>
+                <AccordionContent className="mt-3">
+                  <p className="mb-7 text-white">{description}</p>
+
+                  <div className="mb-8">
+                    <p className="mb-3">Objectives</p>
+                    <ul className="list-decimal text-sm text-zinc-400">
+                      {objectives?.map((item, i) => <li key={i}>{item}</li>)}
+                    </ul>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-8 xl:grid-cols-2">
+                    <div>
+                      <p className="mb-3">Tech</p>
+                      <ul className="flex flex-wrap gap-1">
+                        {technology.map((item, i) => (
+                          <li key={i}>
+                            <Pill>{item}</Pill>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="mb-3">Deliverables</p>
+                      <ul className="flex flex-wrap gap-1">
+                        {deliverables?.map((item, i) => (
+                          <li key={i}>
+                            <Pill>{item}</Pill>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -93,14 +135,14 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="flex flex-col"
+          className="mt-12 flex flex-col"
         >
           <motion.div variants={staggerChild}>
             <a
-              href={domain}
+              href={`https://${domain}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-400"
+              className="text-zinc-400 transition-colors hover:text-white"
               onMouseEnter={() =>
                 cursorChangeHandler({ type: "hover", text: "web" })
               }
@@ -116,7 +158,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
               href={repository}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-400"
+              className="text-zinc-400 transition-colors hover:text-white"
               onMouseEnter={() =>
                 cursorChangeHandler({ type: "hover", text: "repo" })
               }

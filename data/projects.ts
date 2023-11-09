@@ -5,7 +5,7 @@ export type ProjectShape = {
   color: string;
   coverImg: string;
   credits?: string[];
-  delvierables?: string[];
+  deliverables?: string[];
   description?: string;
   domain: string;
   imgFolder: string;
@@ -14,7 +14,7 @@ export type ProjectShape = {
   services: string[];
   slug: string;
   tagline?: string;
-  tasks?: string[];
+  objectives?: string[];
   technology: string[];
   year: number;
 };
@@ -30,16 +30,16 @@ export const projects: ProjectShape[] = [
     coverImg: "/images/cover.png",
     imgFolder: "/images/projects/zeda",
     description:
-      "Zeda is a leading global technology solutions company. Our foundation combines expertise from diverse industries, including additive manufacturing, nanotech, precision machining and regulatory know-how.",
+      "Zeda is a leading global technology solutions company. Their foundation focuses on additive manufacturing, nanotech, precision machining and regulatory know-how.",
     tagline: "Building the future together",
     credits: [],
-    technology: ["React", "NextJS", "Typescript", "Sanity CMS", "TailwindCSS"],
-    delvierables: ["Website", "Blog", "CMS"],
+    technology: ["React", "NextJS", "Sanity", "Tailwind"],
+    deliverables: ["Website", "CMS", "Design System"],
     services: ["Visual Design", "Web Development", "Content Strategy"],
-    tasks: [
-      "Refactor the UI and theme.",
-      "Integrate multiple account creation and account admin functions.",
-      "Integrate Ledger hardware wallet support.",
+    objectives: [
+      "Define the content strategy and user experience",
+      "Design an aesthetic user interface",
+      "Develop a website with robust SEO and integrated CMS",
     ],
     process: [
       "This project required a deep dive into react, redux and chrome extensions—as well as several new APIs which communicate with the handshake blockchain and USB devices.",
