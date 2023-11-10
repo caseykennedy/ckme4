@@ -58,7 +58,7 @@ export default function Employment() {
   return (
     <Section className="items-center border-t-[2px] border-dotted border-zinc-700">
       <div className="container grid grid-cols-6 gap-5">
-        <div className="col-span-full mb-16 text-zinc-400 md:col-span-1">
+        <div className="col-span-full mb-8 text-zinc-400 md:col-span-1">
           Employment
         </div>
         <motion.div className="col-span-full grid grid-cols-1 gap-5 gap-y-12 sm:grid-cols-2 sm:gap-y-24 lg:col-span-5 lg:grid-cols-5">

@@ -12,6 +12,7 @@ export const env = createEnv({
     CDN_API_KEY: z.string(),
     CDN_API_SECRET: z.string(),
     CDN_FOLDER: z.string(),
+    CDN_THUMBNAILS_FOLDER: z.string(),
   },
 
   /**
@@ -35,6 +36,7 @@ export const env = createEnv({
     CDN_API_KEY: process.env.CDN_API_KEY,
     CDN_API_SECRET: process.env.CDN_API_SECRET,
     CDN_FOLDER: process.env.CDN_FOLDER,
+    CDN_THUMBNAILS_FOLDER: process.env.CDN_THUMBNAILS_FOLDER,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.

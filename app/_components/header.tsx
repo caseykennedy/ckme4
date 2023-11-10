@@ -1,5 +1,3 @@
-"use client";
-
 import InfoMenu from "./info-menu";
 
 export default function Header() {

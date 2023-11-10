@@ -4,15 +4,22 @@ import { useContext, useRef } from "react";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 import { motion, useInView } from "framer-motion";
 
+import { type ProjectLinkShape } from "../featured-sites";
+
 import { MouseContext } from "~/context/mouse-context";
-import { type ProjectShape } from "~/data/projects";
+import { cn } from "~/utils";
 import { staggerChild } from "~/utils/variants";
 
-export default function ProjectLink({ project }: { project: ProjectShape }) {
+export default function ProjectLink({
+  project,
+}: {
+  project: ProjectLinkShape;
+}) {
   const { client, year, domain } = project;
   const { cursorChangeHandler } = useContext(MouseContext);
   const inViewRef = useRef(null);
   const isInView = useInView(inViewRef, { amount: 0.9, once: true });
+
   return (
     <motion.a
       ref={inViewRef}
@@ -22,11 +29,13 @@ export default function ProjectLink({ project }: { project: ProjectShape }) {
       href={`https://${domain}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="group grid w-full grid-cols-4 border-t-[2px] border-dotted border-zinc-700 py-5 text-zinc-400 transition-colors last:border-b-[2px] hover:bg-zinc-950 lg:grid-cols-6"
+      className={cn(
+        `z-1 group relative grid w-full grid-cols-4 border-t-[2px] border-dotted border-zinc-700 py-5 text-zinc-400 transition-colors after:absolute after:bottom-0 after:left-0  after:right-0 after:z-[-1] after:h-0 after:bg-zinc-900 after:transition-all after:ease-in after:content-[''] last:border-b-[2px] after:hover:top-0 after:hover:h-full lg:grid-cols-6`,
+      )}
       onMouseEnter={() =>
         cursorChangeHandler({
           type: "figure",
-          figure: project.coverImg,
+          figure: project.secure_url,
         })
       }
       onMouseLeave={() =>

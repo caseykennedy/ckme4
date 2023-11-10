@@ -31,10 +31,10 @@ import {
 export default function ProjectCard({ project }: { project: ProjectShape }) {
   const {
     client,
-    coverImg,
     deliverables,
     description,
     domain,
+    publicID,
     repository,
     services,
     slug,
@@ -205,7 +205,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
               }
             >
               <Img
-                src={coverImg}
+                src={publicID}
                 alt="alt"
                 width={1087}
                 height={632}
@@ -230,7 +230,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
               }
             >
               <Img
-                src={coverImg}
+                src={publicID}
                 alt="alt"
                 width={1087}
                 height={632}

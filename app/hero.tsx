@@ -24,7 +24,7 @@ const capabilities = [
 
 const clients = [
   "Zeda, Inc.",
-  "enCirca",
+  // "enCirca",
   "Valeo",
   "Cahuilla Casino",
   "Fidira",
@@ -102,7 +102,19 @@ export default function Hero() {
           </motion.li>
           {links.map(({ label, url }, i) => (
             <motion.li variants={staggerChild} key={i}>
-              <a href={url} target="_blank" rel="noopener noreferrer">
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-white"
+                onMouseEnter={() =>
+                  cursorChangeHandler({
+                    type: "hover",
+                    text: "arw",
+                  })
+                }
+                onMouseLeave={() => cursorChangeHandler({ type: "default" })}
+              >
                 {label}
               </a>
             </motion.li>

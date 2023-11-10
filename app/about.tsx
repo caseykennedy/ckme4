@@ -19,15 +19,15 @@ export default function About() {
   return (
     <Section className="w-full items-center border-t-[2px] border-dotted border-zinc-700">
       <div className="container grid grid-cols-6 gap-5">
-        <div className="col-span-full mb-16 text-zinc-400 md:col-span-3">
-          About
+        <div className="col-span-full mb-8 text-zinc-400 sm:col-span-2 lg:col-span-3">
+          Bio
         </div>
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={staggerContainer}
           ref={inViewRef}
-          className="col-span-full text-zinc-400 md:col-span-3"
+          className="col-span-full text-zinc-400 sm:col-span-4 lg:col-span-3"
         >
           {aboutMe.map((para, i) => (
             <motion.p variants={staggerChild} key={i} className="mb-4 text-2xl">

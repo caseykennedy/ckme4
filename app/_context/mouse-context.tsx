@@ -3,7 +3,7 @@
 import React, { createContext, ReactNode, useState } from "react";
 
 type CursorType = {
-  type: "default" | "hover" | "hidden" | "figure";
+  type: "default" | "hover" | "hidden" | "figure" | "link";
   text?: string;
   figure?: string;
 };
