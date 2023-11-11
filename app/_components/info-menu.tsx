@@ -19,7 +19,7 @@ export default function InfoMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <PlusIcon />
+        <PlusIcon className="h-4 w-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>

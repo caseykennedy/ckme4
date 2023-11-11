@@ -67,26 +67,30 @@ export default function Hero() {
   return (
     <Section className="flex min-h-[500px] flex-col items-center justify-between pb-0 pt-0 sm:pb-0 sm:pt-0 xl:h-[66vh]">
       <div className="container grid grid-cols-4 gap-8 lg:grid-cols-5 lg:gap-5 xl:grid-cols-6">
-        <div className="col-span-full mb-8 pt-[6.25rem] md:col-span-3 lg:col-span-3">
+        <div className="col-span-full mb-6 mt-[6.25rem] md:col-span-2 lg:col-span-3">
           <h2 className="max-w-[26ch] flex-1 text-2xl tracking-tight text-white">
             <TextReveal text="Web development and visual design for people, teams and visionaries" />
           </h2>
         </div>
 
         <motion.ul
-          className="col-span-2 pt-4 leading-snug text-zinc-400 md:col-span-1 lg:col-span-1"
+          className="col-span-1 pt-4 leading-snug text-zinc-400 lg:col-span-1"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
         >
-          <motion.li variants={staggerChild} className="pb-8 md:pb-16">
+          <motion.li
+            variants={staggerChild}
+            className="pb-8 text-white md:pb-16"
+          >
             Contact
           </motion.li>
-          <motion.li variants={staggerChild} className="pb-8 text-white">
+          <motion.li variants={staggerChild} className="pb-8">
             <a
               href={`mailto:${contact.email}`}
               target="_blank"
               rel="noopener noreferrer"
+              className="text-white hover:underline"
               onMouseEnter={() =>
                 cursorChangeHandler({
                   type: "hover",
@@ -106,7 +110,7 @@ export default function Hero() {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-white"
+                className="hover:text-white hover:underline"
                 onMouseEnter={() =>
                   cursorChangeHandler({
                     type: "hover",
@@ -124,7 +128,7 @@ export default function Hero() {
         <ListItems
           title="Capabilities"
           items={capabilities}
-          className="hidden lg:block"
+          className="hidden sm:col-span-1 sm:block"
         />
         <ListItems title="Clients" items={clients} />
       </div>

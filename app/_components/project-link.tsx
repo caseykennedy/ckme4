@@ -30,7 +30,7 @@ export default function ProjectLink({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        `z-1 group relative grid w-full grid-cols-4 border-t-[2px] border-dotted border-zinc-700 py-5 text-zinc-400 transition-colors after:absolute after:bottom-0 after:left-0  after:right-0 after:z-[-1] after:h-0 after:bg-zinc-900 after:ease-in after:content-[''] last:border-b-[2px] after:hover:top-0 after:hover:h-full lg:grid-cols-6`,
+        `z-1 group relative block w-full border-t-[2px] border-dotted border-zinc-700 pb-12 text-zinc-400 transition-colors after:absolute after:bottom-0 after:left-0  after:right-0 after:z-[-1] after:h-0 after:bg-zinc-900 after:ease-in after:content-[''] after:hover:top-0 after:hover:h-full`,
       )}
       onMouseEnter={() =>
         cursorChangeHandler({
@@ -42,17 +42,22 @@ export default function ProjectLink({
         cursorChangeHandler({ type: "default", text: "", figure: "" })
       }
     >
-      <div className="col-span-3 flex flex-row flex-nowrap lg:col-span-2">
-        <div className="relative w-16 text-zinc-400 transition-all">{year}</div>
-        <span className="text-white transition-all group-hover:text-white">
-          {client}
-        </span>
+      <div className="mb-4 grid w-full grid-cols-4 lg:grid-cols-6">
+        <div className="col-span-3 flex flex-row flex-nowrap pt-3 lg:col-span-2">
+          <div className="relative w-16 text-zinc-400 transition-all">
+            {year}
+          </div>
+        </div>
+        <div className="col-span-3 hidden pt-3 transition-all group-hover:text-white lg:block">
+          {domain}
+        </div>
+        <div className="col-span-1 flex w-full -translate-x-1 translate-y-1 items-center justify-end text-zinc-400 transition-all group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-white">
+          <ArrowTopRightIcon className="h-4 w-4" />
+        </div>
       </div>
-      <div className="col-span-3 hidden transition-all group-hover:text-white lg:block">
-        {domain}
-      </div>
-      <div className="col-span-1 flex w-full -translate-x-1 translate-y-1 items-center justify-end text-zinc-400 transition-all group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-white">
-        <ArrowTopRightIcon />
+
+      <div className="text-xl text-white transition-all group-hover:text-white">
+        {client}
       </div>
     </motion.a>
   );

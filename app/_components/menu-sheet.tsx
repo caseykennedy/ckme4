@@ -21,7 +21,7 @@ export default function MenuSheet() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger>
-        <PlusIcon />
+        <PlusIcon className="h-4 w-4" />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>

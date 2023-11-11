@@ -1,4 +1,6 @@
-import ProfileCard from "./profile-card";
+import { MinusIcon } from "@radix-ui/react-icons";
+
+import InfoMenu from "./info-menu";
 
 export default function Header() {
   return (
@@ -10,7 +12,7 @@ export default function Header() {
         </h1>
 
         <div>
-          <ProfileCard />
+          <InfoMenu />
         </div>
       </div>
     </header>

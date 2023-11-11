@@ -76,7 +76,7 @@ export default async function FeaturedSites() {
   //   console.log("imagesWithBlurDataUrls[i]?.hex", reducedResults[i]?.color);
   // }
   return (
-    <Section className="">
+    <Section>
       <div className="container">
         {reducedResults.map((project, i) => (
           <ProjectLink project={project} key={i} />

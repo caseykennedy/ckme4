@@ -69,7 +69,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
     >
       <div className="col-span-full flex flex-col justify-between md:col-span-2">
         <motion.div variants={revealVariants}>
-          {client}
+          <h2 className="text-xl">{client}</h2>
           <motion.ul
             variants={staggerContainer}
             initial="hidden"
