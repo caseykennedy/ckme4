@@ -19,18 +19,16 @@ export default function ProfileCard() {
       <DialogTrigger asChild>
         <PlusIcon />
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here.
-          </DialogDescription>
+          <DialogTitle>Casey Kennedy</DialogTitle>
+          <DialogDescription>Developer + Designer</DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">a</div>
           <div className="grid grid-cols-4 items-center gap-4">b</div>
         </div>
-        <DialogFooter>Dialog Footer</DialogFooter>
+        <DialogFooter>me@caseykennedy.me</DialogFooter>
       </DialogContent>
     </Dialog>
   );

@@ -16,13 +16,13 @@ export default function Cursor() {
       <div
         style={{ transform: "translate3d(var(--mouse-x), var(--mouse-y), 0)" }}
         className={cn(
-          `pointer-events-none fixed left-5 top-5 z-50 hidden h-5 w-5 translate-x-4 translate-y-4 items-center justify-center rounded-full bg-white text-black opacity-0 transition-all duration-150 ease-out sm:flex`,
+          `pointer-events-none fixed left-5 top-5 z-50 hidden h-5 w-5 translate-x-4 translate-y-4 items-center justify-center rounded-full bg-white text-black opacity-0 mix-blend-difference transition-all duration-150 ease-out sm:flex`,
           {
             "opacity-1": x > 0 && y > 0,
-            "h-12 w-fit translate-x-3 translate-y-3 px-6 mix-blend-normal":
+            "h-12 w-fit translate-x-2 translate-y-2 px-6 mix-blend-normal":
               cursorType.type === "hover",
             "h-6 w-6 bg-zinc-400": cursorType.type === "link",
-            " h-[179px] w-[270px] translate-x-5 translate-y-5 rounded-lg":
+            " h-[179px] w-[270px] translate-x-5 translate-y-5 rounded-lg mix-blend-normal":
               cursorType.type === "figure",
             "mix-blend-normal sm:hidden": cursorType.type === "hidden",
           },
