@@ -14,9 +14,9 @@ export default function Cursor() {
   return (
     <>
       <div
-        style={{ left: `${x}px`, top: `${y}px` }}
+        style={{ transform: "translate3d(var(--mouse-x), var(--mouse-y), 0)" }}
         className={cn(
-          `pointer-events-none fixed left-0 top-0 z-50 hidden h-4 w-4 translate-x-4 translate-y-4 items-center justify-center rounded-full bg-white text-black opacity-0 ease-in sm:flex`,
+          `pointer-events-none fixed left-5 top-5 z-50 hidden h-5 w-5 translate-x-4 translate-y-4 items-center justify-center rounded-full bg-white text-black opacity-0 transition-all duration-150 ease-out sm:flex`,
           {
             "opacity-1": x > 0 && y > 0,
             "h-12 w-fit translate-x-3 translate-y-3 px-6 mix-blend-normal":
@@ -35,7 +35,7 @@ export default function Cursor() {
               src={cursorType.figure}
               fill={true}
               alt="Project thumbnail"
-              className="h-full w-full rounded object-cover"
+              className="h-full w-full rounded-lg object-cover"
             />
           </div>
         )}

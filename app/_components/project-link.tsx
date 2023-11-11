@@ -30,7 +30,7 @@ export default function ProjectLink({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        `z-1 group relative grid w-full grid-cols-4 border-t-[2px] border-dotted border-zinc-700 py-5 text-zinc-400 transition-colors after:absolute after:bottom-0 after:left-0  after:right-0 after:z-[-1] after:h-0 after:bg-zinc-900 after:transition-all after:ease-in after:content-[''] last:border-b-[2px] after:hover:top-0 after:hover:h-full lg:grid-cols-6`,
+        `z-1 group relative grid w-full grid-cols-4 border-t-[2px] border-dotted border-zinc-700 py-5 text-zinc-400 transition-colors after:absolute after:bottom-0 after:left-0  after:right-0 after:z-[-1] after:h-0 after:bg-zinc-900 after:ease-in after:content-[''] last:border-b-[2px] after:hover:top-0 after:hover:h-full lg:grid-cols-6`,
       )}
       onMouseEnter={() =>
         cursorChangeHandler({

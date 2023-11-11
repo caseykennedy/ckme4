@@ -176,6 +176,20 @@ export const projects: ProjectShape[] = [
     repository: "https://github.com/caseykennedy/encirca-bridge",
     domain: "orthoimplantcompany.com",
   },
+  {
+    featured: false,
+    client: "Tetra",
+    slug: "tetra",
+    year: 2022,
+    category: "website",
+    color: "#000000",
+    publicID: "portfolio/thumbnails/nqtfuoe8quyckq5m5bnv",
+    imgFolder: "/images/projects/tetra",
+    technology: ["React", "Gatsby", "Typescript", "SASS"],
+    services: ["Visual Design", "Web Development", "CMS Integration"],
+    repository: "https://github.com/caseykennedy/encirca-bridge",
+    domain: "tetrastudio.netlify.app",
+  },
 ];
 
 export default projects;

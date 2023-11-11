@@ -8,6 +8,7 @@ export type MousePosition = {
 };
 
 export default function useMousePosition(): MousePosition {
+  const root = document.documentElement;
   const [mousePosition, setMousePosition] = useState<MousePosition>({
     x: 0,
     y: 0,
@@ -16,6 +17,8 @@ export default function useMousePosition(): MousePosition {
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       setMousePosition({ x: event.clientX, y: event.clientY });
+      root.style.setProperty("--mouse-x", `${event.clientX}px`);
+      root.style.setProperty("--mouse-y", `${event.clientY}px`);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -23,7 +26,7 @@ export default function useMousePosition(): MousePosition {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [root]);
 
   return mousePosition;
 }

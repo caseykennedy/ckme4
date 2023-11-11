@@ -1,4 +1,4 @@
-import InfoMenu from "./info-menu";
+import ProfileCard from "./profile-card";
 
 export default function Header() {
   return (
@@ -10,7 +10,7 @@ export default function Header() {
         </h1>
 
         <div>
-          <InfoMenu />
+          <ProfileCard />
         </div>
       </div>
     </header>
