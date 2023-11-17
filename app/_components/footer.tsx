@@ -8,15 +8,16 @@ import { MouseContext } from "~/context/mouse-context";
 import { contact, links } from "~/data/info";
 import useDate from "~/lib/useDate";
 import { scrollTop } from "~/utils";
-import useMousePosition from "~/utils/useMousePosition";
+import useMousePosition from "~/utils/use-mouse-position";
 import { staggerChild, staggerContainer } from "~/utils/variants";
 
 export default function Footer() {
   const { cursorChangeHandler } = useContext(MouseContext);
   const { x, y } = useMousePosition();
   const nevadaTime = useDate();
+
   return (
-    <footer className="max-w-site border-t-[2px] border-dotted border-zinc-700 px-2 py-3 sm:px-5 sm:py-4">
+    <footer className="mx-2 max-w-site border-t-[2px] border-dotted border-zinc-700 py-3 sm:mx-5 sm:py-4">
       <div className="container pb-96">Casey Kennedy</div>
       <div className="container grid grid-cols-6">
         <div className="col-span-1 self-end">©☻</div>

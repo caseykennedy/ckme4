@@ -166,7 +166,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
                 cursorChangeHandler({ type: "default", text: "" })
               }
             >
-              repository
+              github
             </a>
           </motion.div>
         </motion.div>
@@ -196,7 +196,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
         >
           <SwiperSlide>
             <div
-              className="aspect"
+              className="aspect-video"
               onMouseEnter={() =>
                 cursorChangeHandler({ type: "hover", text: "drag" })
               }
@@ -221,7 +221,7 @@ export default function ProjectCard({ project }: { project: ProjectShape }) {
 
           <SwiperSlide>
             <div
-              className="aspect"
+              className="aspect-video"
               onMouseEnter={() =>
                 cursorChangeHandler({ type: "hover", text: "drag" })
               }

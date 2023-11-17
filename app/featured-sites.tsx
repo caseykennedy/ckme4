@@ -2,7 +2,7 @@ import ProjectLink from "~/components/project-link";
 import Section from "~/components/ui/section";
 import projects from "~/data/projects";
 import cloudinary from "~/lib/cloudinary";
-import getBase64 from "~/lib/get-local-base64";
+// import getBase64 from "~/lib/get-local-base64";
 
 export type ResourceShape = {
   asset_id: string;

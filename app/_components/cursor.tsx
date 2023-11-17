@@ -6,7 +6,7 @@ import Img from "./img";
 
 import { MouseContext } from "~/context/mouse-context";
 import { cn } from "~/utils";
-import useMousePosition from "~/utils/useMousePosition";
+import useMousePosition from "~/utils/use-mouse-position";
 
 export default function Cursor() {
   const { x, y } = useMousePosition();

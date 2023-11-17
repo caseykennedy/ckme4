@@ -134,8 +134,8 @@ export default function Hero() {
       </div>
 
       <div className="container flex justify-end md:justify-start">
-        <div className="w-16">
-          <Canvas camera={{ position: [0, 1, 16], fov: 60 }}>
+        <div className="w-20">
+          <Canvas camera={{ position: [0, 1, 14], fov: 60 }}>
             <ambientLight intensity={1} />
             <spotLight
               position={[20, 20, 25]}
@@ -145,11 +145,11 @@ export default function Hero() {
               // castShadow
               // shadow-mapSize={[512, 512]}
             />
-            <directionalLight position={[0, 5, -4]} intensity={20} />
+            <directionalLight position={[0, 5, -4]} intensity={10} />
             <directionalLight
               position={[0, -15, -0]}
-              intensity={19}
-              color="blue"
+              intensity={6}
+              color="white"
             />
             <TetraGeo
               flatShading={false}

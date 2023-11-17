@@ -23,5 +23,8 @@
     --site-width: 1680px;
     --swiper-navigation-top-offset: ;
     --swiper-navigation-size: 20px;
+
+    --mouse-x: 0;
+    --mouse-y: 0;
   }
 }

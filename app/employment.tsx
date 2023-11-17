@@ -61,7 +61,7 @@ export default function Employment() {
         <div className="col-span-full mb-8 text-zinc-400 md:col-span-1">
           Employment
         </div>
-        <motion.div className="col-span-full grid grid-cols-1 gap-5 gap-y-12 sm:grid-cols-2 sm:gap-y-24 lg:col-span-5 lg:grid-cols-5">
+        <motion.div className="col-span-full grid grid-cols-1 gap-8 gap-y-12 sm:grid-cols-2 sm:gap-y-24 lg:col-span-5 lg:grid-cols-5">
           {employment[0] && (
             <JobCard job={employment[0]} className="border-t-0 " />
           )}

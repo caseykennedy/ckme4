@@ -20,8 +20,8 @@
     "paths": {
       "~/*": ["./*"],
       "~/components/*": ["app/_components/*"],
-
-      "~/context/*": ["app/_context/*"]
+      "~/context/*": ["app/_context/*"],
+      "~/styles/*": ["app/_styles/*"]
     },
     "plugins": [{ "name": "next" }]
   },

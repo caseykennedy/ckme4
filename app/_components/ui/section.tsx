@@ -3,6 +3,7 @@ import { cn } from "~/utils";
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
+  ref?: React.RefObject<HTMLDivElement>;
 }
 
 export default function Section({ children, className, ...props }: Props) {
